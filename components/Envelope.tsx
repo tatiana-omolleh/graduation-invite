@@ -38,41 +38,43 @@ export default function Envelope({ guestName, onOpen }: EnvelopeProps) {
         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         className="relative w-full max-w-lg aspect-[4/3] bg-[#224335] rounded-lg shadow-envelope border border-forest/40 flex flex-col justify-end items-center p-6 overflow-hidden"
       >
-        {/* Guest Addressed Text (Gold & Ivory against Dark Green) */}
-        <AnimatePresence>
-          {!isOpening && (
-            <motion.div 
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.6 }}
-              className="absolute top-10 text-center z-10"
-            >
-              <p className="text-[10px] uppercase tracking-[0.3em] text-gold font-sans mb-1.5">
-                Personal Invitation To
-              </p>
-              <p className="font-serif text-3xl md:text-4xl text-ivory font-semibold italic tracking-wide">
-                {guestName}
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {/* Guest Addressed Text (Visible before open) */}
+<AnimatePresence>
+  {!isOpening && (
+    <motion.div 
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.6 }}
+      className="absolute top-10 text-center z-10"
+    >
+      {/* Replaced text-gold with text-gold-foil and added font-semibold */}
+      <p className="text-[11px] uppercase tracking-[0.3em] text-gold-foil font-sans font-semibold mb-1.5">
+        Personal Invitation To
+      </p>
+      <p className="font-serif text-3xl md:text-4xl text-ivory font-semibold italic tracking-wide">
+        {guestName}
+      </p>
+    </motion.div>
+  )}
+</AnimatePresence>
 
-        {/* The Sliding Cream Invitation Card */}
-        <motion.div
-          initial={{ y: 0 }}
-          animate={isOpening ? { y: -230, scale: 1.05, zIndex: 30 } : { y: 0 }}
-          transition={{ delay: 0.6, duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
-          className="w-[88%] h-[82%] bg-ivory border-2 border-gold/30 rounded shadow-luxury p-6 flex flex-col items-center justify-center text-center absolute bottom-4 z-0"
-        >
-          <p className="font-serif text-[11px] uppercase tracking-[0.25em] text-gold mb-2 font-medium">
-            Bachelor of Science
-          </p>
-          <h3 className="font-serif text-2xl md:text-3xl text-forest font-bold tracking-wide">
-            Tatiana Omolleh
-          </h3>
-          <p className="font-sans text-xs tracking-widest text-sage mt-2 uppercase font-medium">
-            Informatics and Computer Science
-          </p>
-        </motion.div>
+{/* The Sliding Cream Invitation Card */}
+<motion.div
+  initial={{ y: 0 }}
+  animate={isOpening ? { y: -230, scale: 1.05, zIndex: 30 } : { y: 0 }}
+  transition={{ delay: 0.6, duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+  className="w-[88%] h-[82%] bg-ivory border-2 border-[#C2A46D]/40 rounded shadow-luxury p-6 flex flex-col items-center justify-center text-center absolute bottom-4 z-0"
+>
+  {/* Replaced text-gold with text-gold-foil */}
+  <p className="font-serif text-xs uppercase tracking-[0.25em] text-gold-foil mb-2 font-bold">
+    Bachelor of Science
+  </p>
+  <h3 className="font-serif text-2xl md:text-3xl text-forest font-bold tracking-wide">
+    Tatiana Omolleh
+  </h3>
+  <p className="font-sans text-xs tracking-widest text-sage mt-2 uppercase font-medium">
+    Informatics and Computer Science
+  </p>
+</motion.div>
 
         {/* Envelope Pocket Left/Right Folds (Darker Forest Green) */}
         <div 

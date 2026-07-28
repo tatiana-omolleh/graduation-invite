@@ -5,12 +5,19 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Loading from '@/components/Loading';
 import Envelope from '@/components/Envelope';
 import EventDetails from '@/components/EventDetails';
+import RSVP from '@/components/RSVP';
 
 interface ClientExperienceProps {
   guestName: string;
+  guestSlug: string;
+  initialRsvpStatus: string;
 }
 
-export default function ClientExperience({ guestName }: ClientExperienceProps) {
+export default function ClientExperience({ 
+  guestName, 
+  guestSlug, 
+  initialRsvpStatus 
+}: ClientExperienceProps) {
   const [state, setState] = useState<'loading' | 'envelope' | 'opened'>('loading');
 
   return (
@@ -48,31 +55,37 @@ export default function ClientExperience({ guestName }: ClientExperienceProps) {
           >
             {/* Initial Landing Header */}
             <header className="text-center space-y-6 border border-borderSubtle p-8 md:p-14 rounded-lg shadow-luxury bg-white/50 backdrop-blur-sm">
-              <p className="font-serif text-3xl md:text-6xl text-forest font-medium tracking-tight">
-                Dear {guestName},
-              </p>
-              <div className="space-y-2">
-                <p className="font-serif text-xs uppercase tracking-[0.3em] text-gold font-medium">
-                  Graduation Celebration
-                </p>
-                <h4 className="font-serif text-4xl md:text-6xl text-forest font-medium tracking-tight">
-                  Tatiana Omolleh
-                </h4>
-                <p className="font-sans text-xs md:text-sm text-muted tracking-widest uppercase pt-1">
-                  Bachelor of Science in Informatics and Computer Science
-                </p>
-              </div>
-              <div className="pt-6 border-t border-borderSubtle/60 max-w-xs mx-auto">
-                <p className="font-serif text-lg md:text-xl italic text-charcoal leading-relaxed">
-                  &ldquo;I would love for you to join me as I celebrate the culmination of my university journey.&rdquo;
-                </p>
-              </div>
-            </header>
+  <p className="font-script text-4xl md:text-5xl text-forest font-normal">
+    Dear {guestName},
+  </p>
+  <div className="space-y-2">
+    {/* Replaced text-gold with text-gold-foil and increased font weight */}
+    <p className="font-serif text-xs uppercase tracking-[0.3em] text-gold-foil font-bold">
+      Graduation Celebration
+    </p>
+    <h1 className="font-serif text-4xl md:text-6xl text-forest font-medium tracking-tight">
+      Tatiana Omolleh
+    </h1>
+    <p className="font-sans text-xs md:text-sm text-muted tracking-widest uppercase pt-1">
+      Bachelor of Science in Computer Science
+    </p>
+  </div>
+  <div className="pt-6 border-t border-borderSubtle/60 max-w-xs mx-auto">
+    <p className="font-serif text-lg md:text-xl italic text-charcoal leading-relaxed">
+      &ldquo;I would love for you to join me as I celebrate the culmination of my university journey.&rdquo;
+    </p>
+  </div>
+</header>
 
-            {/* Event Details (Date, Time, Venue, Map) */}
+            {/* Event Details Section */}
             <EventDetails />
 
-            {/* Future components (Timeline, Gallery, RSVP) will slot in below this line */}
+            {/* Live Database Connected RSVP Section */}
+            <RSVP 
+              guestSlug={guestSlug} 
+              guestName={guestName} 
+              initialStatus={initialRsvpStatus} 
+            />
           </motion.div>
         )}
       </AnimatePresence>

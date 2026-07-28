@@ -1,3 +1,4 @@
+// app/[slug]/page.tsx
 import { sql } from '@/lib/db';
 import { notFound } from 'next/navigation';
 import ClientExperience from './client-view';
@@ -23,6 +24,11 @@ export default async function InvitePage({
     notFound();
   }
 
-  // Pass the database name into your interactive Framer Motion experience
-  return <ClientExperience guestName={guest.name} />;
+  return (
+    <ClientExperience 
+      guestName={guest.name} 
+      guestSlug={guest.slug} 
+      initialRsvpStatus={guest.rsvp_status} 
+    />
+  );
 }
