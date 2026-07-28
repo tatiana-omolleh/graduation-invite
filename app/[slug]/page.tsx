@@ -1,5 +1,6 @@
 import { sql } from '@/lib/db';
 import { notFound } from 'next/navigation';
+import ClientExperience from './client-view';
 
 interface Guest {
   id: number;
@@ -13,7 +14,6 @@ export default async function InvitePage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  // Await params to ensure Next.js 15 compatibility
   const { slug } = await params;
   
   const rows = (await sql`SELECT * FROM guests WHERE slug = ${slug}`) as Guest[];
@@ -23,17 +23,6 @@ export default async function InvitePage({
     notFound();
   }
 
-  return (
-    
-      
-        
-          <h2>Personal Invitation <br></br>
-        
-        Welcome, {guest.name} <br></br>
-        
-          Current RSVP Status: {guest.rsvp_status}
-        
-      
-    </h2>
-  );
+  // Pass the database name into your interactive Framer Motion experience
+  return <ClientExperience guestName={guest.name} />;
 }
