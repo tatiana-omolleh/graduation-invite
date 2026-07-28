@@ -67,7 +67,7 @@ export default function ClientExperience({
       Tatiana Omolleh
     </h1>
     <p className="font-sans text-xs md:text-sm text-muted tracking-widest uppercase pt-1">
-      Bachelor of Science in Computer Science
+      Bachelor of Science in Informatics and Computer Science
     </p>
   </div>
   <div className="pt-6 border-t border-borderSubtle/60 max-w-xs mx-auto">
