@@ -6,6 +6,6 @@ export const eventDetails = {
   venueName: "KCB Leadership Center",
   venueAddress: "Karen, Nairobi",
   mapUrl: "https://maps.app.goo.gl/qJLdnxC3vYGmCQXk8", 
-  dressCode: "Garden Formal — Forest Greens, Earth Tones & Neutrals",
+  dressCode: "Forest Greens, Earth Tones & Neutrals",
 //   receptionNotes: "Drinks, dinner, and celebration to immediately follow the ceremony.",
 };
