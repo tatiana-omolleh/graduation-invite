@@ -72,7 +72,7 @@ export default function ClientExperience({
   </div>
   <div className="pt-6 border-t border-borderSubtle/60 max-w-xs mx-auto">
     <p className="font-serif text-lg md:text-xl italic text-charcoal leading-relaxed">
-      &ldquo;I would love for you to join me as I celebrate the culmination of my university journey.&rdquo;
+      &ldquo;I would love for you to join us as we celebrate the culmination of my university journey.&rdquo;
     </p>
   </div>
 </header>
